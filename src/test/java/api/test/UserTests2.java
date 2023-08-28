@@ -38,14 +38,14 @@ public class UserTests2 {
 	}
 	
 
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void test_getUserByName() {
 		Response response = UserEndPoints2.readUser(this.userPayload.getUsername());
 		response.then().log().all();
 		assertEquals(response.getStatusCode(),200);
 	}
 	
-	@Test(priority = 3)
+	@Test(priority = 4)
 	public void test_updateUserByName() {
 		userPayload.setFirstName(faker.name().firstName());
 		userPayload.setLastName(faker.internet().safeEmailAddress());
@@ -58,7 +58,7 @@ public class UserTests2 {
 		assertEquals(responseAfterUpdate.getStatusCode(),200);
 	}
 	
-	@Test(priority = 4)
+	@Test(priority = 6)
 	public void test_deleteUserByName() {
 		Response response = UserEndPoints2.deleteUser(this.userPayload.getUsername());
 		response.then().log().all();
